@@ -20,7 +20,18 @@ const CustomDateRangePicker = () => {
     const toggleModal = () => setIsOpen(!isOpen)
 
     const handleApply = () => {
-        console.log("Выбранные даты:", selectedRange[0].startDate, "-", selectedRange[0].endDate)
+        const startDate = selectedRange[0].startDate.toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const endDate = selectedRange[0].endDate.toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        console.log("Выбранные даты:", startDate, "-", endDate)
         setIsOpen(false)
     }
 
