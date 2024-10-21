@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react'
 import { DateRange } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // базовые стили
 import 'react-date-range/dist/theme/default.css' // тема по умолчанию
-// import { useOnClickOutside } from './useOnClickOutside' // хук для закрытия при клике снаружи
+import { useOnClickOutside } from './useOnClickOutside.jsx' // хук для закрытия при клике снаружи
 
-const CustomDateRangePicker = () => {
+const App = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [selectedRange, setSelectedRange] = useState([
         {
@@ -15,7 +15,7 @@ const CustomDateRangePicker = () => {
     ])
 
     const ref = useRef(null)
-    // useOnClickOutside(ref, () => setIsOpen(false)) // Закрытие при клике снаружи
+    useOnClickOutside(ref, () => setIsOpen(false))
 
     const toggleModal = () => setIsOpen(!isOpen)
 
@@ -154,4 +154,4 @@ const CustomDateRangePicker = () => {
     )
 }
 
-export default CustomDateRangePicker
+export default App
